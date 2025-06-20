@@ -55,7 +55,7 @@ return {
         end, 'Hover information')
 
         -- Signature Help
-        map('gK', function()
+        map('gs', function()
           vim.lsp.buf.signature_help({ border = 'rounded', max_height = 25, max_width = 120 })
         end, 'Signature Help')
 
