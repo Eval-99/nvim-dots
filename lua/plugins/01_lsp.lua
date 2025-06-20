@@ -16,7 +16,6 @@ return {
         pcall(vim.keymap.del, 'n', 'grr') -- References
         pcall(vim.keymap.del, 'n', 'gri') -- Implementation
         pcall(vim.keymap.del, { 'n', 'v' }, 'gra') -- Code Action
-        pcall(vim.keymap.del, 'i', '<C-s>') -- Insert mode signature help
 
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
@@ -61,7 +60,7 @@ return {
         end, 'Signature Help')
 
         -- Signature Help Insert mode
-        map('<C-k>', function()
+        map('<C-s>', function()
           vim.lsp.buf.signature_help({ border = 'rounded', max_height = 25, max_width = 120 })
         end, 'Signature Help Insert Mode', 'i')
 
