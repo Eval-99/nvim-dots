@@ -85,5 +85,20 @@ return {
     },
 
     signature = { enabled = true },
+
+    -- Command mode config.
+    cmdline = {
+      keymap = {
+        ['<Tab>'] = { 'show_and_insert', 'select_next' },
+        ['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
+
+        ['<C-y>'] = { 'show', 'fallback' },
+
+        ['<C-n>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-space>'] = { 'select_and_accept' },
+        ['<C-e>'] = { 'cancel' },
+      },
+    },
   },
 }

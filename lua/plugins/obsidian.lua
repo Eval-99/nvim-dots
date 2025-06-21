@@ -2,16 +2,11 @@ return {
   'obsidian-nvim/obsidian.nvim',
   version = '*',
   lazy = true,
-  ft = 'markdown',
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- refer to `:h file-pattern` for more examples
-    --   "BufReadPre path/to/my-vault/*.md",
-    'BufReadPre '
-      .. vim.fn.expand('~')
-      .. '/Documents/Notes/zk/*.md',
-    --   "BufNewFile path/to/my-vault/*.md",
+    -- stylua: ignore start
+    'BufReadPre ' .. vim.fn.expand('~') .. '/Documents/Notes/zk/*.md',
+    'BufNewFile ' .. vim.fn.expand('~') .. '/Documents/Notes/zk/*.md',
+    -- stylua: ignore end
   },
   dependencies = {
     -- Required.
@@ -22,10 +17,14 @@ return {
   ---@module 'obsidian'
   ---@type obsidian.config.ClientOpts
   opts = {
+    statusline = {
+      enabled = true, -- turn it off
+      format = ' {{backlinks}} backlinks    {{properties}} properties  󰧮 {{words}} words   {{chars}} chars', -- works like the template system
+    },
     workspaces = {
       {
         name = 'main',
-        path = '~/Documents/Notes/zk/home/sixty-four/Documents/Notes/zk',
+        path = '~/Documents/Notes/zk',
       },
     },
   },
