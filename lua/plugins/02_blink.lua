@@ -28,11 +28,27 @@ return {
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
   opts = {
+    -- Main keymaps
     keymap = {
       preset = 'default',
       ['<C-y>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide' },
       ['<C-space>'] = { 'select_and_accept' },
+    },
+
+    -- Command mode keymaps
+    cmdline = {
+      keymap = {
+        ['<Tab>'] = { 'show_and_insert', 'select_next' },
+        ['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
+
+        ['<C-y>'] = { 'show', 'fallback' },
+
+        ['<C-n>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-space>'] = { 'select_and_accept' },
+        ['<C-e>'] = { 'cancel' },
+      },
     },
 
     appearance = {
@@ -85,20 +101,5 @@ return {
     },
 
     signature = { enabled = true },
-
-    -- Command mode config.
-    cmdline = {
-      keymap = {
-        ['<Tab>'] = { 'show_and_insert', 'select_next' },
-        ['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
-
-        ['<C-y>'] = { 'show', 'fallback' },
-
-        ['<C-n>'] = { 'select_next', 'fallback' },
-        ['<C-p>'] = { 'select_prev', 'fallback' },
-        ['<C-space>'] = { 'select_and_accept' },
-        ['<C-e>'] = { 'cancel' },
-      },
-    },
   },
 }
