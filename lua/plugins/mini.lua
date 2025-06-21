@@ -1,6 +1,7 @@
 return {
   'echasnovski/mini.nvim',
   config = function()
+    -- Text selector
     require('mini.ai').setup({ n_lines = 500 })
 
     -- Surround
