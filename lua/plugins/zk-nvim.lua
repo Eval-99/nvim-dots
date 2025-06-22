@@ -62,7 +62,7 @@ return {
     vim.keymap.set('n', '<leader>zi', "<Cmd>ZkInsertLink<CR>", { noremap = true, silent = false, desc = 'ZK: Insert link' })
 
     -- Insert link at selection
-    vim.keymap.set('v', '<leader>zi', "<Cmd>'<,'>ZkInsertLinkAtSelection", { noremap = true, silent = false, desc = 'ZK: Insert link at selected' })
+    vim.keymap.set('v', '<leader>zi', "<Cmd>'<,'>ZkInsertLinkAtSelection<Cmd>", { noremap = true, silent = false, desc = 'ZK: Insert link at selected' })
 
     -- Create a new note in the same directory as the current buffer, using the current selection for title.
     vim.keymap.set('v', '<leader>zs', "<Cmd>'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { noremap = true, silent = false, desc = 'ZK: New note with selected as title' })
