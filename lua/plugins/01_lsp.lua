@@ -214,6 +214,7 @@ return {
       zls = {},
       gopls = {},
       shellcheck = {},
+      zk = {},
     }
 
     -- Install formaters
