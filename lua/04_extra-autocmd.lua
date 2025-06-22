@@ -26,13 +26,5 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- conceallevel = 2 only for markdown files
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'markdown',
---   callback = function()
---     vim.opt_local.conceallevel = 2
---   end,
--- })
-
 -- don't auto comment new line
 vim.api.nvim_create_autocmd('BufEnter', { command = [[set formatoptions-=cro]] })

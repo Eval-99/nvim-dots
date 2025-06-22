@@ -38,33 +38,44 @@ return {
       end
     end, { desc = 'ZK: Toggle checkbox state' })
 
-    -- local opts = { noremap = true, silent = false }
-    --
-    -- -- stylua: ignore start
-    -- -- Create a new note after asking for its title.
-    -- vim.api.nvim_set_keymap('n', '<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { noremap = true, silent = false, desc = '' })
-    --
-    -- -- Open notes.
-    -- vim.api.nvim_set_keymap('n', '<leader>zo', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", { noremap = true, silent = false, desc = '' })
-    -- -- Open notes associated with the selected tags.
-    -- vim.api.nvim_set_keymap('n', '<leader>zt', '<Cmd>ZkTags<CR>', { noremap = true, silent = false, desc = '' })
-    --
-    -- -- Search for the notes matching a given query.
-    -- vim.api.nvim_set_keymap('n', '<leader>zf', "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", { noremap = true, silent = false, desc = '' })
-    -- -- Search for the notes matching the current visual selection.
-    -- vim.api.nvim_set_keymap('v', '<leader>zf', ":'<,'>ZkMatch<CR>", { noremap = true, silent = false, desc = '' })
-    --
-    -- -- Create a new note in the same directory as the current buffer, using the current selection for title.
-    -- map('v', '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { noremap = true, silent = false, desc = '' })
-    -- -- Create a new note in the same directory as the current buffer, using the current selection for note content and asking for its title.
-    -- map('v', '<leader>znc', ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", { noremap = true, silent = false, desc = '' })
-    --
-    -- -- Open notes linking to the current buffer.
-    -- map('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { noremap = true, silent = false, desc = '' })
-    -- -- Alternative for backlinks using pure LSP and showing the source context.
-    -- --map('n', '<leader>zb', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = false, desc = '' })
-    -- -- Open notes linked by the current buffer.
-    -- map('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { noremap = true, silent = false, desc = '' })
-    -- -- stylua: ignore end
+    -- stylua: ignore start
+
+    -- Create a new note after asking for its title.
+    vim.keymap.set('n', '<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { noremap = true, silent = false, desc = 'ZK: New note' })
+
+    -- Open notes.
+    vim.keymap.set('n', '<leader>zo', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", { noremap = true, silent = false, desc = 'ZK: Open notes' })
+
+    -- Open notes associated with the selected tags.
+    vim.keymap.set('n', '<leader>zt', '<Cmd>ZkTags<CR>', { noremap = true, silent = false, desc = 'ZK: Search tags' })
+
+    -- Open zk directory
+    vim.keymap.set('n', '<leader>zC', '<Cmd>ZkCd<CR>', { noremap = true, silent = false, desc = 'ZK: Open ZK folder' })
+
+    -- Search for the notes matching a given query.
+    vim.keymap.set('n', '<leader>zf', "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", { noremap = true, silent = false, desc = 'ZK: Search notes' })
+
+    -- Search for the notes matching the current visual selection.
+    vim.keymap.set('v', '<leader>zm', "<Cmd>'<,'>ZkMatch<CR>", { noremap = true, silent = false, desc = 'ZK: Search highlighted in notes' })
+
+    -- Insert link
+    vim.keymap.set('n', '<leader>zi', "<Cmd>ZkInsertLink<CR>", { noremap = true, silent = false, desc = 'ZK: Insert link' })
+
+    -- Insert link at selection
+    vim.keymap.set('v', '<leader>zi', "<Cmd>'<,'>ZkInsertLinkAtSelection", { noremap = true, silent = false, desc = 'ZK: Insert link at selected' })
+
+    -- Create a new note in the same directory as the current buffer, using the current selection for title.
+    vim.keymap.set('v', '<leader>zs', "<Cmd>'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { noremap = true, silent = false, desc = 'ZK: New note with selected as title' })
+
+    -- Create a new note in the same directory as the current buffer, using the current selection for note content and asking for its title.
+    vim.keymap.set('v', '<leader>zS', "<Cmd>'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", { noremap = true, silent = false, desc = 'ZK: New note with selected as contend' })
+
+    -- Open notes linking to the current buffer.
+    vim.keymap.set('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { noremap = true, silent = false, desc = 'ZK: List backlinks' })
+
+    -- Open notes linked by the current buffer.
+    vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { noremap = true, silent = false, desc = 'ZK: List local links' })
+
+    -- stylua: ignore end
   end,
 }
