@@ -39,7 +39,7 @@ return {
 
         WinSeparator = { fg = '#ebdbb2', bg = '' },
         Search = { fg = '#689d6a', bg = '' },
-        IncSearch = { fg = '#b8bb26', bg = '' },
+        IncSearch = { fg = '#fb4934', bg = '' },
 
         -- GruvboxRedUnderline = { fg = '#1d2122', bg = '#fb4934', bold = true },
         -- GruvboxYellowUnderline = { fg = '#1d2122', bg = '#fabd2f', bold = true },
