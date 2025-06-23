@@ -72,14 +72,11 @@ return {
 
     sources = {
       default = { 'lsp', 'spell', 'buffer', 'path', 'snippets', 'lazydev', 'omni' },
+      per_filetype = { sql = { 'snippets', 'dadbod', 'buffer' } },
       providers = {
-
+        dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        spell = {
-          name = 'Spell',
-          module = 'blink-cmp-spell',
-          opts = {},
-        },
+        spell = { name = 'Spell', module = 'blink-cmp-spell', opts = {} },
         omni = {
           module = 'blink.cmp.sources.complete_func',
           enabled = function()
