@@ -5,6 +5,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = false,
   config = function()
+    local detail = false
     vim.keymap.set('n', '<leader>ol', '<CMD>Oil<CR>', { desc = 'Open Oil.nvim' })
     require('oil').setup({
       default_file_explorer = true,
@@ -50,6 +51,17 @@ return {
         ['<leader>o.'] = { 'actions.toggle_hidden', mode = 'n' },
         ['<leader>ov'] = { 'actions.select', opts = { vertical = true } },
         ['<leader>oh'] = { 'actions.select', opts = { horizontal = true } },
+        ['<leader>od'] = {
+          desc = 'Toggle file detail view',
+          callback = function()
+            detail = not detail
+            if detail then
+              require('oil').set_columns({ 'icon', 'permissions', 'size', 'mtime' })
+            else
+              require('oil').set_columns({ 'icon' })
+            end
+          end,
+        },
       },
       use_default_keymaps = false,
       view_options = {
