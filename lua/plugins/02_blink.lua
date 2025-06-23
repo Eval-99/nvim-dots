@@ -21,7 +21,9 @@ return {
           end,
         },
       },
-      opts = {},
+      opts = function()
+        require('snippets.latex')
+      end,
     },
     'folke/lazydev.nvim',
   },
