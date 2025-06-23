@@ -4,7 +4,7 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require('gruvbox').setup({
-      undercurl = true,
+      undercurl = false,
       underline = true,
       bold = true,
       italic = {
@@ -41,10 +41,10 @@ return {
         Search = { fg = '#689d6a', bg = '' },
         IncSearch = { fg = '#fb4934', bg = '' },
 
-        -- GruvboxRedUnderline = { fg = '#1d2122', bg = '#fb4934', bold = true },
-        -- GruvboxYellowUnderline = { fg = '#1d2122', bg = '#fabd2f', bold = true },
-        -- GruvboxAquaUnderline = { fg = '#1d2122', bg = '#8ec07c', bold = true },
-        -- GruvboxBlueUnderline = { fg = '#1d2122', bg = '#83a598', bold = true },
+        GruvboxRedUnderline = { fg = '#1d2122', bg = '#fb4934', bold = true },
+        GruvboxYellowUnderline = { fg = '#1d2122', bg = '#fabd2f', bold = true },
+        GruvboxAquaUnderline = { fg = '#1d2122', bg = '#8ec07c', bold = true },
+        GruvboxBlueUnderline = { fg = '#1d2122', bg = '#83a598', bold = true },
       },
     })
 

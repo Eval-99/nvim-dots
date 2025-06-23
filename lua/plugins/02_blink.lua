@@ -71,7 +71,7 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'spell', 'buffer', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'spell', 'buffer', 'path', 'snippets', 'lazydev', 'omni' },
       providers = {
 
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
@@ -79,6 +79,18 @@ return {
           name = 'Spell',
           module = 'blink-cmp-spell',
           opts = {},
+        },
+        omni = {
+          module = 'blink.cmp.sources.complete_func',
+          enabled = function()
+            return vim.bo.omnifunc ~= 'v:lua.vim.lsp.omnifunc'
+          end,
+          ---@type blink.cmp.CompleteFuncOpts
+          opts = {
+            complete_func = function()
+              return vim.bo.omnifunc
+            end,
+          },
         },
       },
     },
@@ -100,6 +112,6 @@ return {
       },
     },
 
-    signature = { enabled = true },
+    signature = { enabled = false },
   },
 }
