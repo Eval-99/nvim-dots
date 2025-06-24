@@ -13,7 +13,7 @@ vim.keymap.set('n', '<Leader>tv', ':TermVert<CR>', { desc = 'Open vertical termi
 vim.keymap.set('n', '<Leader>th', ':TermHori<CR>', { desc = 'Open horizontal terminal', silent = true })
 
 -- Use C-n to enter the terminal normal mode.
-vim.keymap.set('t', '<C-n>', '<C-\\><C-n>', { desc = 'Enter terminal normal mode' })
+vim.keymap.set('t', '<ESC><ESC>', '<C-\\><C-n>', { desc = 'Enter terminal normal mode' })
 
 -- Start terminal in insert mode.
 vim.api.nvim_create_autocmd({ 'TermOpen', 'WinEnter' }, {
