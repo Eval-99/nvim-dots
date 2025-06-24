@@ -29,30 +29,32 @@ return {
         Normal = { bg = '#1d2122' },
 
         SignColumn = { link = 'Normal' },
+
+        GruvboxRedSign = { bg = '' },
+        GruvboxBlueSign = { bg = '' },
+        GruvboxAquaSign = { bg = '' },
         GruvboxGreenSign = { bg = '' },
         GruvboxOrangeSign = { bg = '' },
         GruvboxPurpleSign = { bg = '' },
         GruvboxYellowSign = { bg = '' },
-        GruvboxRedSign = { bg = '' },
-        GruvboxBlueSign = { bg = '' },
-        GruvboxAquaSign = { bg = '' },
-
-        WinSeparator = { fg = '#ebdbb2', bg = '' },
-        Search = { fg = '#689d6a', bg = '' },
-        IncSearch = { fg = '#fb4934', bg = '' },
-
         GruvboxRedUnderline = { fg = '#1d2122', bg = '#fb4934', bold = true },
         GruvboxYellowUnderline = { fg = '#1d2122', bg = '#fabd2f', bold = true },
         GruvboxAquaUnderline = { fg = '#1d2122', bg = '#8ec07c', bold = true },
         GruvboxBlueUnderline = { fg = '#1d2122', bg = '#83a598', bold = true },
+        GruvboxPurpleUnderline = { fg = '#1d2122', bg = '#d3869b', bold = true },
+
+        WinSeparator = { fg = '#ebdbb2', bg = '' },
+
+        Search = { fg = '#689d6a', bg = '' },
+        IncSearch = { fg = '#fb4934', bg = '' },
+
+        -- I control these highlight groups manually from within the lsp config.
+        SpellBad = { fg = '', bg = '' },
+        SpellCap = { fg = '', bg = '' },
+        SpellRare = { fg = '', bg = '' },
+        SpellLocal = { fg = '', bg = '' },
       },
     })
-
-    -- Clear spell highlight groups
-    vim.api.nvim_set_hl(0, 'SpellBad', {})
-    vim.api.nvim_set_hl(0, 'SpellCap', {})
-    vim.api.nvim_set_hl(0, 'SpellRare', {})
-    vim.api.nvim_set_hl(0, 'SpellLocal', {})
 
     -- Set dark mode
     vim.o.background = 'dark'

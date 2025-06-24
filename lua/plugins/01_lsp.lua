@@ -116,6 +116,77 @@ return {
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+    -- Toggle Ltex and Cspell language
+    vim.opt.spelllang = { 'en_us' }
+    function ToggleLtexLang()
+      if vim.lsp.get_clients({ name = 'ltex_plus' })[1] ~= nil then
+        local ltexServer = vim.lsp.get_clients({ name = 'ltex_plus' })[1]
+        local ltexLang = ltexServer.config.settings.ltex.language
+        if ltexLang == 'en-US' then
+          ltexServer.config.settings.ltex.language = 'es'
+          vim.opt.spelllang = { 'es' }
+          vim.notify('LTeX language is Spanish', vim.log.levels.INFO)
+        elseif ltexLang == 'es' then
+          ltexServer.config.settings.ltex.language = 'en-US'
+          vim.opt.spelllang = { 'en_us' }
+          vim.notify('LTeX language is English', vim.log.levels.INFO)
+        end
+        ltexServer.notify('workspace/didChangeConfiguration', {
+          settings = {
+            ltex = ltexServer.config.settings.ltex,
+          },
+        })
+      else
+        local cspell = vim.opt.spelllang:get()[1]
+        if cspell == 'en_us' then
+          vim.opt.spelllang = { 'es' }
+          print('Cspell language is Spanish')
+        elseif cspell == 'es' then
+          vim.opt.spelllang = { 'en_us' }
+          print('Cspell language is English')
+        end
+      end
+    end
+
+    -- Enable and disable Cspell highlight groups
+    -- This will not work with colorschemes other than gruvbox.nvim
+    -- Look up what highlight groups Spell links to if using other colorscheme
+    _G.highlight_enabled = _G.highlight_enabled or false
+    function CspellHightlights()
+      if _G.highlight_enabled == false then
+        vim.api.nvim_set_hl(0, 'SpellBad', {})
+        vim.api.nvim_set_hl(0, 'SpellCap', {})
+        vim.api.nvim_set_hl(0, 'SpellRare', {})
+        vim.api.nvim_set_hl(0, 'SpellLocal', {})
+        _G.highlight_enabled = true
+        print('Cspell highlights cleared')
+      else
+        vim.api.nvim_set_hl(0, 'SpellBad', { link = 'GruvboxRedUnderline' })
+        vim.api.nvim_set_hl(0, 'SpellCap', { link = 'GruvboxBlueUnderline' })
+        vim.api.nvim_set_hl(0, 'SpellRare', { link = 'GruvboxPurpleUnderline' })
+        vim.api.nvim_set_hl(0, 'SpellLocal', { link = 'GruvboxAquaUnderline' })
+        _G.highlight_enabled = false
+        print('Cspell highlights enabled')
+      end
+    end
+
+    -- Enable and disable Cspell
+    function ToggleCSpell()
+      local cspell_enabled = vim.opt.spell:get()
+      if cspell_enabled == false then
+        vim.opt.spell = true
+        print('Cspell enabled')
+      elseif cspell_enabled == true then
+        vim.opt.spell = false
+        print('Cspell disabled')
+      end
+    end
+
+    -- Toggle keymaps
+    vim.keymap.set('n', '<leader>cl', '<cmd>lua ToggleLtexLang()<cr>', { desc = '[C]hange Ltex [l]anguage' })
+    vim.keymap.set('n', '<leader>cs', '<cmd>lua ToggleCSpell()<cr>', { desc = '[C]hange builtin neovim [s]pell state' })
+    vim.keymap.set('n', '<leader>cc', '<cmd>lua CspellHightlights()<cr>', { desc = '[C]hange builtin neovim [s]pell state' })
+
     -- Install servers
     local servers = {
       lua_ls = {
@@ -159,44 +230,6 @@ return {
           },
         },
         on_attach = function(client)
-          -- Toggle Ltex and spell language
-          vim.opt.spelllang = { 'en_us' }
-          function ToggleLtexLang()
-            local ltexServer = vim.lsp.get_clients({ name = 'ltex_plus' })[1]
-            local ltexLang = ltexServer.config.settings.ltex.language
-            if ltexLang == 'en-US' then
-              ltexServer.config.settings.ltex.language = 'es'
-              vim.opt.spelllang = { 'es' }
-              vim.notify('LTeX language is Spanish', vim.log.levels.INFO)
-            elseif ltexLang == 'es' then
-              ltexServer.config.settings.ltex.language = 'en-US'
-              vim.opt.spelllang = { 'en_us' }
-              vim.notify('LTeX language is English', vim.log.levels.INFO)
-            end
-
-            client.notify('workspace/didChangeConfiguration', {
-              settings = {
-                ltex = client.config.settings.ltex,
-              },
-            })
-          end
-
-          -- Enable and disable spell
-          function ToggleSpell()
-            local spell_enabled = vim.opt.spell:get()
-            if spell_enabled == false then
-              vim.opt.spell = true
-              print('Spell enabled')
-            elseif spell_enabled == true then
-              vim.opt.spell = false
-              print('Spell disabled')
-            end
-          end
-
-          -- Toggle keymaps
-          vim.keymap.set('n', '<leader>cl', '<cmd>lua ToggleLtexLang()<cr>', { desc = '[C]hange Ltex [l]anguage' })
-          vim.keymap.set('n', '<leader>cs', '<cmd>lua ToggleSpell()<cr>', { desc = '[C]hange builtin neovim [s]pell state' })
-
           -- Set update_in_insert to true for Ltex
           if client:supports_method('textDocument/publishDiagnostic') then
             local is_pull = false -- true for `textDocument/diagnostic`
