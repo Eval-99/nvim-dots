@@ -13,6 +13,7 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-telescope/telescope-symbols.nvim' },
 
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -24,6 +25,7 @@ return {
         buffers = {
           mappings = {
             n = {
+              -- <M-d> Not getting deleted for some reason.
               ['<M-d>'] = false,
               ['<C-S-d>'] = 'delete_buffer',
             },
