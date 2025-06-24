@@ -13,9 +13,8 @@ return {
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-telescope/telescope-symbols.nvim' },
-
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'allaman/emoji.nvim', opts = {} },
   },
   config = function()
     -- Help menu Insert mode: <c-/>
@@ -64,6 +63,7 @@ return {
     })
 
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'emoji')
     pcall(require('telescope').load_extension, 'ui-select')
 
     local builtin = require('telescope.builtin')
@@ -78,6 +78,7 @@ return {
     vim.keymap.set('n', '<leader>sp', builtin.resume, { desc = '[S]earch [P]ickers' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>se', require('telescope').load_extension('emoji').emoji, { desc = '[S]earch [E]moji' })
 
     vim.keymap.set('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
