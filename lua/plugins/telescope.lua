@@ -72,12 +72,12 @@ return {
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sr', builtin.git_files, { desc = '[S]earch Git [R]epo' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch Current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sp', builtin.resume, { desc = '[S]earch [P]ickers' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Search buffers' })
     vim.keymap.set('n', '<leader>se', require('telescope').load_extension('emoji').emoji, { desc = '[S]earch [E]moji' })
 
     vim.keymap.set('n', '<leader>/', function()
@@ -95,6 +95,10 @@ return {
 
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files({ cwd = vim.fn.stdpath('config'), file_ignore_patterns = { 'stardict/', 'lazy%-lock%.json' } })
-    end, { desc = '[S]earch [N]eovim files' })
+    end, { desc = '[S]earch [N]eovim Files' })
+
+    vim.keymap.set('n', '<leader>sl', function()
+      builtin.find_files({ cwd = vim.fs.joinpath(vim.fn.stdpath('data'), 'lazy') })
+    end, { desc = '[S]earch Neovim [L]azy Files' })
   end,
 }
