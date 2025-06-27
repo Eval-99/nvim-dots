@@ -183,9 +183,9 @@ return {
     end
 
     -- Toggle keymaps
-    vim.keymap.set('n', '<leader>cl', '<cmd>lua ToggleLtexLang()<cr>', { desc = '[C]hange Ltex [l]anguage' })
-    vim.keymap.set('n', '<leader>cs', '<cmd>lua ToggleCSpell()<cr>', { desc = '[C]hange builtin neovim [s]pell state' })
-    vim.keymap.set('n', '<leader>cc', '<cmd>lua CspellHightlights()<cr>', { desc = '[C]hange builtin neovim [s]pell state' })
+    vim.keymap.set('n', '<leader>cl', '<cmd>lua ToggleLtexLang()<cr>', { desc = '[C]hange Ltex [L]anguage' })
+    vim.keymap.set('n', '<leader>cs', '<cmd>lua ToggleCSpell()<cr>', { desc = '[C]hange builtin neovim [S]pell state' })
+    vim.keymap.set('n', '<leader>cc', '<cmd>lua CspellHightlights()<cr>', { desc = '[C]lear [C]spell highlight groups' })
 
     -- Install servers
     local servers = {
