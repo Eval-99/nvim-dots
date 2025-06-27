@@ -11,6 +11,8 @@ return {
         -- hybrid_modes = { 'n' },
       },
 
+      experimental = { check_rtp = false },
+
       markdown = {
         -- tables = presets.tables.rounded,
         -- horizontal_rules = presets.horizontal_rules.arrowed,
