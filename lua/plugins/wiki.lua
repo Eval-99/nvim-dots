@@ -41,10 +41,10 @@ return {
 
     let g:wiki_link_creation = {
           \ 'md': {
-          \   'link_type': 'wiki',
+          \   'link_type': 'md',
           \   'url_extension': '.md',
           \   'url_transform': { x ->
-          \    wiki#url#utils#url_encode_specific(x, '()') },
+          \    wiki#url#utils#url_encode(x, '()') },
           \   'link_text': { url -> wiki#toc#get_page_title(url) },
           \ },
           \ 'org': {
