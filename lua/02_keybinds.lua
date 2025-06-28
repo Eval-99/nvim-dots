@@ -46,21 +46,22 @@ vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste and preserve clipboar
 -- Delete while preserving clip register
 vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'Delete and preserve clipboard' })
 
--- Create Zellij pane in git repo with Lazygit running
-function ZellijLazygit()
-  local git_dir = vim.fn.finddir('.git', '.;')
-  local cwd_dir = vim.fn.getcwd()
-
-  if git_dir ~= '' then
-    os.execute(string.format('zellij action new-pane --floating --cwd "%s" -- lazygit', cwd_dir))
-    print('Starting Lazygit...')
-  else
-    print('Not in a git repo.')
-  end
-end
-
--- Zellij pane keymap
-vim.keymap.set('n', '<leader>lg', '<cmd>lua ZellijLazygit()<CR>', { desc = 'Zellij pane in git repo with Lazygit running', silent = true })
+-- Now using builtin Wezterm multiplexer
+-- -- Create Zellij pane in git repo with Lazygit running
+-- function ZellijLazygit()
+--   local git_dir = vim.fn.finddir('.git', '.;')
+--   local cwd_dir = vim.fn.getcwd()
+--
+--   if git_dir ~= '' then
+--     os.execute(string.format('zellij action new-pane --floating --cwd "%s" -- lazygit', cwd_dir))
+--     print('Starting Lazygit...')
+--   else
+--     print('Not in a git repo.')
+--   end
+-- end
+--
+-- -- Zellij pane keymap
+-- vim.keymap.set('n', '<leader>lg', '<cmd>lua ZellijLazygit()<CR>', { desc = 'Zellij pane in git repo with Lazygit running', silent = true })
 
 -- Diagnostic QFlist keymaps
 vim.keymap.set('n', '<leader>qo', vim.diagnostic.setloclist, { desc = '[Q]uickfix buffer list [O]pen' })
