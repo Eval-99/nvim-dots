@@ -82,7 +82,7 @@ return {
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Search buffers' })
     vim.keymap.set('n', '<leader>se', require('telescope').load_extension('emoji').emoji, { desc = '[S]earch [E]moji' })
     vim.keymap.set('n', '<leader>sm', '<CMD>Emoji kaomoji-by-group<CR>', { desc = '[S]earch Kao[m]oji' })
-    vim.keymap.set('n', '<leader>sc', '<CMD>Telescope nerdy<CR>', { desc = '[S]earch Nerd Font [C]haracter' })
+    vim.keymap.set('n', '<leader>si', '<CMD>Telescope nerdy<CR>', { desc = '[S]earch Nerd Font [I]con' })
 
     vim.keymap.set('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
