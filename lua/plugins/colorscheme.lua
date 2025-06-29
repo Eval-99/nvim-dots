@@ -45,7 +45,7 @@ return {
 
         WinSeparator = { fg = '#ebdbb2', bg = '' },
 
-        Search = { fg = '#689d6a', bg = '' },
+        Search = { fg = '#8ec07c', bg = '' },
         IncSearch = { fg = '#fb4934', bg = '' },
 
         -- I control these highlight groups manually from within the lsp config.
