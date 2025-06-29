@@ -215,7 +215,23 @@ return {
       ltex_plus = {
         settings = {
           ltex = {
-            enabled = { 'tex', 'latex', 'bib', 'markdown' },
+            enabled = {
+              'bibtex',
+              'context',
+              'context.tex',
+              'html',
+              'latex',
+              'markdown',
+              'mdx',
+              'typst',
+              'asciidoc',
+              'neorg',
+              'org',
+              'quarto',
+              'restructuredtext',
+              'rsweave',
+              'gitcommit',
+            },
             language = 'en-US',
             checkFrequency = 'edit',
             completionEnabled = true,
