@@ -263,6 +263,7 @@ return {
       zls = {},
       gopls = {},
       shellcheck = {},
+      tinymist = {},
     }
 
     -- Install formaters
