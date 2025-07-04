@@ -21,41 +21,6 @@ return {
     -- Help menu Insert mode: <c-/>
     -- Help menu Normal mode: ?
     require('telescope').setup({
-      pickers = {
-        buffers = {
-          mappings = {
-            n = {
-              -- <M-d> Not getting deleted for some reason.
-              ['<M-d>'] = false,
-              ['<C-S-d>'] = 'delete_buffer',
-            },
-            i = {
-              ['<M-d>'] = false,
-              ['<C-S-d>'] = 'delete_buffer',
-            },
-          },
-        },
-      },
-      defaults = {
-        mappings = {
-          n = {
-            ['<M-f>'] = false,
-            ['<M-k>'] = false,
-            ['<M-q>'] = false,
-            ['<C-S-f>'] = 'results_scrolling_left',
-            ['<C-S-k>'] = 'results_scrolling_right',
-            ['<C-S-q>'] = { 'send_selected_to_qflist', 'open_qflist' },
-          },
-          i = {
-            ['<M-f>'] = false,
-            ['<M-k>'] = false,
-            ['<M-q>'] = false,
-            ['<C-S-f>'] = 'results_scrolling_left',
-            ['<C-S-k>'] = 'results_scrolling_right',
-            ['<C-S-q>'] = { 'send_selected_to_qflist', 'open_qflist' },
-          },
-        },
-      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
