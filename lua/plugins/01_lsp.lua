@@ -262,7 +262,7 @@ return {
       clangd = {},
       zls = {},
       gopls = {},
-      shellcheck = {},
+      bashls = {},
       tinymist = {},
     }
 
@@ -275,6 +275,7 @@ return {
       'gofumpt',
       'goimports',
       'prettier',
+      'shellcheck',
       'shfmt',
     })
     require('mason-tool-installer').setup({ ensure_installed = ensure_installed })

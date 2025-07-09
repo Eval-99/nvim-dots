@@ -35,7 +35,7 @@ vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Preserve text after paste' 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlight with Esc' })
 
 -- Use C-p to switch to previous pane.
-vim.keymap.set({ 'n', 't' }, '<C-p>', '<Cmd>wincmd p<CR>', { desc = 'Switch to previous pane' })
+-- vim.keymap.set({ 'n', 't' }, '<C-p>', '<Cmd>wincmd p<CR>', { desc = 'Switch to previous pane' })
 
 -- Yank to system with C-y
 vim.keymap.set({ 'n', 'v' }, '<C-y>', [["+y]], { desc = 'Yank to system with C-y' })
