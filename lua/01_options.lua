@@ -57,8 +57,9 @@ vim.o.scrolloff = 10
 -- Quit with insaved files will open a confirmation menu
 vim.o.confirm = true
 
--- Block cursor in insert
-vim.o.guicursor = ''
+-- Block cursor and blink
+vim.o.guicursor =
+  'n-v-c:block,i-ci-ve:block,r-cr:block,o:block,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
 -- Termguicolors
 vim.opt.termguicolors = true
