@@ -54,7 +54,7 @@ vim.o.inccommand = 'split'
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
--- Quit with insaved files will open a confirmation menu
+-- Quit with unsaved files will open a confirmation menu
 vim.o.confirm = true
 
 -- Block cursor and blink
