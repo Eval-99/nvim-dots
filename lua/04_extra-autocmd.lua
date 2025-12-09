@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
+  desc = 'When Neovim is resized, change splits accordingly',
   group = vim.api.nvim_create_augroup('resize_splits', { clear = true }),
   callback = function()
     local current_tab = vim.fn.tabpagenr()
@@ -19,6 +20,7 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
 
 -- Add cursorline only to Quickfix lists
 vim.api.nvim_create_autocmd('FileType', {
+  desc = 'Cursorline in Quickfix lists',
   group = vim.api.nvim_create_augroup('quickfix cursorline', { clear = true }),
   pattern = 'qf',
   callback = function()
@@ -27,4 +29,4 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- don't auto comment new line
-vim.api.nvim_create_autocmd('BufEnter', { command = [[set formatoptions-=cro]] })
+vim.api.nvim_create_autocmd('BufEnter', { desc = 'No auto comment on newline', command = [[set formatoptions-=cro]] })
