@@ -265,7 +265,7 @@ return {
       bashls = {},
       tinymist = {
         settings = {
-          exportPdf = 'onType',
+          exportPdf = 'onSave',
         },
       },
     }
