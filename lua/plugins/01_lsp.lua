@@ -263,7 +263,11 @@ return {
       zls = {},
       gopls = {},
       bashls = {},
-      tinymist = {},
+      tinymist = {
+        settings = {
+          exportPdf = 'onSave',
+        },
+      },
     }
 
     -- Install formaters
