@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd('FileType', {
   desc = 'Open Typst PDF in Zathura',
   callback = function()
     vim.keymap.set('n', '<leader>ll', function()
-      vim.cmd(string.format("silent !zathura '%s'", string.sub(vim.fn.expand('%'), 1, -4) .. 'pdf'))
+      vim.fn.jobstart({ 'zathura', string.sub(vim.fn.expand('%'), 1, -4) .. 'pdf' })
     end, { desc = 'Open Typst PDF in Zathura' })
   end,
 })
