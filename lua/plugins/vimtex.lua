@@ -13,6 +13,10 @@ let g:vimtex_compiler_latexmk_engines = {
     \ '_'                : '-lualatex',
     \}
 
+let g:vimtex_quickfix_ignore_filters = [
+  \ 'LaTeX Warning: Command \\under\(bar\|line\)  has changed.',
+  \]
+
 ]])
   end,
 }
