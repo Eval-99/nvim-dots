@@ -52,7 +52,7 @@ ls.add_snippets('tex', {
         % off an image.
         % Every section must start on a new page.
         % I use enumerate or itemize for lists of stuff.
-        % \rule{{\textwidth}}{{0.4pt}} \bigbreak{{}} \hl{{}} \ul{{}} \textbf{{}}
+        % \centerline{\rule{5.5in}{0.4pt}} \bigbreak{{}} \hl{{}} \ul{{}} \textbf{{}}
         % \textit{{}} \section{{}} \dots{{}}
         % \begin{{center}}
         % \end{{center}}
