@@ -20,7 +20,7 @@ ls.add_snippets('tex', {
         \usepackage{{sectsty}}
         \usepackage{{titlesec}}
         \usepackage{{geometry}}
-        \usepackage{{soulutf8}}
+        \usepackage{{soul}}
         \usepackage{{xcolor}}
         \usepackage{{framed}}
         \allsectionsfont{{\centering}}
