@@ -28,5 +28,17 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Open compiled Typst PDF in Zathura. Uses the same keymap as LaTeX but only works in Typst files.
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('typst-zathura-viewer', { clear = true }),
+  pattern = 'typst',
+  desc = 'Open Typst PDF in Zathura',
+  callback = function()
+    vim.keymap.set('n', '<leader>ll', function()
+      vim.cmd(string.format("silent !zathura '%s'", string.sub(vim.fn.expand('%'), 1, -4) .. 'pdf'))
+    end, { desc = 'Open Typst PDF in Zathura' })
+  end,
+})
+
 -- don't auto comment new line
 vim.api.nvim_create_autocmd('BufEnter', { desc = 'No auto comment on newline', command = [[set formatoptions-=cro]] })
