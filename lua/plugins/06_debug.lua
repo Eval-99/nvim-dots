@@ -1,8 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
   dependencies = {
-    'rcarriga/nvim-dap-ui',
-    'nvim-neotest/nvim-nio',
     'mason-org/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
     { 'theHamsta/nvim-dap-virtual-text', opts = {} },
@@ -10,6 +8,30 @@ return {
     -- Debug server plugin
     'leoluz/nvim-dap-go',
     'mfussenegger/nvim-dap-python',
+
+    -- Minimal DAP UI
+    {
+      'igorlfs/nvim-dap-view',
+      ---@module 'dap-view'
+      ---@type dapview.Config
+      opts = {
+        winbar = {
+          controls = {
+            enabled = true,
+          },
+        },
+        windows = {
+          terminal = {
+            position = 'right',
+          },
+        },
+        help = {
+          border = 'rounded',
+        },
+        auto_toggle = true,
+        follow_tab = true,
+      },
+    },
   },
 
   -- stylua: ignore start
@@ -28,7 +50,6 @@ return {
     { '<leader>dO', function() require('dap').step_over() end, desc = 'Debug: Step Over' },
     { '<leader>dP', function() require('dap').pause() end, desc = 'Debug: Pause' },
     { '<leader>dr', function() require('dap').repl.toggle() end, desc = 'Debug: Toggle REPL' },
-    { '<leader>dR', function() require('dapui').toggle() end, desc = 'Debug: See last session result.' },
     { '<leader>ds', function() require('dap').session() end, desc = 'Debug: Session' },
     { '<leader>dt', function() require('dap').terminate() end, desc = 'Debug: Terminate' },
     { '<leader>dw', function() require('dap.ui.widgets').hover() end, desc = 'Debug: Widgets' },
@@ -36,9 +57,6 @@ return {
   -- stylua: ignore end
 
   config = function()
-    local dap = require('dap')
-    local dapui = require('dapui')
-
     require('mason-nvim-dap').setup({
       automatic_installation = true,
       handlers = {},
@@ -49,27 +67,6 @@ return {
         'debugpy',
         'codelldb',
         'local-lua-debugger-vscode',
-      },
-    })
-
-    -- Dap UI setup
-    dapui.setup({
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
-      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-      controls = {
-        icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
-          run_last = '▶▶',
-          terminate = '⏹',
-          disconnect = '⏏',
-        },
       },
     })
 
@@ -84,10 +81,6 @@ return {
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
       vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
     end
-
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Debug server plugin setup
     require('dap-go').setup({
