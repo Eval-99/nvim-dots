@@ -2,7 +2,7 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  dependencies = { 'nvim-mini/mini.nvim' },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = false,
   config = function()
     local detail = false

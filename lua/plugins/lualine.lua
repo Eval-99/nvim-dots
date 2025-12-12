@@ -1,10 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-mini/mini.nvim' },
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   config = function()
-    require('mini.icons').setup()
-    require('mini.icons').mock_nvim_web_devicons()
-
     local colors = {
       white = '#ebdbb2',
       black = '#1d2122',

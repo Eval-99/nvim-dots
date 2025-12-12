@@ -13,7 +13,7 @@ return {
       end,
     },
     -- { 'nvim-telescope/telescope-ui-select.nvim' },
-    -- { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     -- { 'allaman/emoji.nvim', opts = {} },
     -- { '2kabhishek/nerdy.nvim', dependencies = { 'folke/snacks.nvim' } },
   },
