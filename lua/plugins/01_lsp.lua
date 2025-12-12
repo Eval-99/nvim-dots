@@ -29,25 +29,29 @@ return {
         map('gR', vim.lsp.buf.rename, '[R]ename')
 
         -- Find references
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('gr', require('snacks').picker.lsp_references, '[G]oto [R]eferences')
 
         -- Jump to the implementation
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the definition
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
 
         -- Jump to the declaration
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('gD', require('snacks').picker.lsp_declarations, '[G]oto [D]eclaration')
 
         -- Fuzzy find symbols in current document.
-        map('gO', require('telescope.builtin').lsp_document_symbols, '[O]pen Document Symbols')
+        map('gs', require('snacks').picker.lsp_symbols, '[G]oto Document [S]ymbols')
 
         -- Fuzzy find the symbols in workspace.
-        map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open [W]orkspace Symbols')
+        map('gS', require('snacks').picker.lsp_workspace_symbols, '[G]oto Workspace [S]ymbols')
 
         -- Jump to type
-        map('gy', require('telescope.builtin').lsp_type_definitions, '[G]oto T[y]pe Definition')
+        map('gy', require('snacks').picker.lsp_type_definitions, '[G]oto T[y]pe Definition')
+
+        -- LSP Calls
+        map('gai', require('snacks').picker.lsp_incoming_calls, '[G]oto LSP C[a]lls [I]ncoming')
+        map('gao', require('snacks').picker.lsp_outgoing_calls, '[G]oto LSP C[a]lls [O]utgoing')
 
         -- Hover information
         map('K', function()
@@ -55,7 +59,7 @@ return {
         end, 'Hover information')
 
         -- Signature Help
-        map('gs', function()
+        map('gh', function()
           vim.lsp.buf.signature_help({ border = 'rounded', max_height = 25, max_width = 120 })
         end, 'Signature Help')
 
