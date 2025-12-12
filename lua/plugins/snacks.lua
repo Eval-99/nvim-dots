@@ -42,8 +42,8 @@ return {
     { '<leader>sD',  function() Snacks.picker.diagnostics_buffer() end, desc = '[S]earch [D]iagnostics in Buffer' },
 
     -- Quickfix list and Loc list
-    { '<leader>sq', function() Snacks.picker.qflist() end, desc = '[S]earch [Q]uickfix List' },
-    { '<leader>sL', function() Snacks.picker.loclist() end, desc = '[S]each [L]ocation List' },
+    { '<leader>sq',  function() Snacks.picker.qflist() end, desc = '[S]earch [Q]uickfix List' },
+    { '<leader>sL',  function() Snacks.picker.loclist() end, desc = '[S]each [L]ocation List' },
 
     -- Commands
     { '<leader>sc',  function() Snacks.picker.commands() end, desc = '[S] [C]ommands' },
@@ -52,7 +52,7 @@ return {
     -- Search ETC
     { '<leader>sh',  function() Snacks.picker.help() end, desc = '[S]earch [H]elp Pages' },
     { '<leader>S/',  function() Snacks.picker.search_history() end, desc = '[S]earch [/] History' },
-    { '<leader>sp', function() Snacks.picker.pickers() end, desc = '[S]earch [P]ickers' },
+    { '<leader>sp',  function() Snacks.picker.pickers() end, desc = '[S]earch [P]ickers' },
     { '<leader>ss',  function() Snacks.picker.resume() end, desc = '[S]earch Open [P]ickers and [S]elect' },
     { '<leader>sk',  function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
     { '<leader>si',  function() Snacks.picker.icons({ custom_sources = { kaomoji = 'https://raw.githubusercontent.com/Eval-99/snacks-picker-kaomoji/refs/heads/main/kaomoji.json' }}) end, desc = '[S]earch [I]cons' },
