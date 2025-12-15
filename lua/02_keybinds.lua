@@ -45,7 +45,7 @@ vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste and preserve clipboar
 -- Delete while preserving clip register
 vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'Delete and preserve clipboard' })
 
--- Now using builtin Wezterm multiplexer
+-- Now using Tmux. Need to figure out how to do this with Tmux.
 -- -- Create Zellij pane in git repo with Lazygit running
 -- function ZellijLazygit()
 --   local git_dir = vim.fn.finddir('.git', '.;')
