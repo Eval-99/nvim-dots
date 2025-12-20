@@ -262,12 +262,13 @@ return {
         settings = {
           basedpyright = {
             analysis = {
-              typeCheckingMode = 'basic',
+              typeCheckingMode = 'off',
             },
           },
         },
       },
       ruff = { cmd = { '' } },
+      ty = {},
       gopls = {},
       clangd = {},
       zls = {},
