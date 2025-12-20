@@ -258,17 +258,17 @@ return {
           },
         },
       },
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = 'off',
-            },
-          },
-        },
-      },
-      ruff = { cmd = { '' } },
+      -- basedpyright = {
+      --   settings = {
+      --     basedpyright = {
+      --       analysis = {
+      --         typeCheckingMode = 'off',
+      --       },
+      --     },
+      --   },
+      -- },
       ty = {},
+      ruff = { cmd = { '' } },
       gopls = {},
       clangd = {},
       zls = {},
