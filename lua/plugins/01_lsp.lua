@@ -193,29 +193,6 @@ return {
 
     -- Install servers
     local servers = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            -- Use Love2d
-            -- diagnostics = { disable = { 'missing-fields' } },
-            -- workspace = {
-            --   userThirdParty = { '~/Code/lua/addons' },
-            -- },
-          },
-        },
-      },
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = 'basic',
-            },
-          },
-        },
-      },
       ltex_plus = {
         settings = {
           ltex = {
@@ -261,30 +238,53 @@ return {
           end
         end,
       },
-      ruff = { cmd = { '' } },
       texlab = {},
-      clangd = {},
-      zls = {},
-      gopls = {},
-      bashls = {},
       tinymist = {
         settings = {
           exportPdf = 'onSave',
         },
       },
+      lua_ls = {
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
+            },
+            -- Use Love2d
+            -- diagnostics = { disable = { 'missing-fields' } },
+            -- workspace = {
+            --   userThirdParty = { '~/Code/lua/addons' },
+            -- },
+          },
+        },
+      },
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = 'basic',
+            },
+          },
+        },
+      },
+      ruff = { cmd = { '' } },
+      gopls = {},
+      clangd = {},
+      zls = {},
+      bashls = {},
     }
 
     -- Install formaters
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua',
       'tex-fmt',
-      'clang-format',
+      'stylua',
       'gofumpt',
       'goimports',
-      'prettier',
-      'shellcheck',
+      'clang-format',
       'shfmt',
+      'shellcheck',
+      'prettier',
     })
     require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
