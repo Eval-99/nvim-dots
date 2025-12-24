@@ -23,8 +23,8 @@ vim.keymap.set('n', '<C-right>', '<cmd>vertical resize -3<CR>', { desc = 'Resize
 -- use 'U' to redo instead of <C-R>
 vim.keymap.set('n', 'U', '<C-R>', { desc = 'Use "U" to redo' })
 
--- <leader>s to replace word under cursor. I use the LSP to do this now. The keymap is gR
--- vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word under cursor for the entire file' })
+-- <leader>r to replace string under cursor. This is still useful since even if the LSP can rename variables, it cannot search and replace plain string as far as I know.
+vim.keymap.set('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word under cursor for the entire file' })
 
 -- Make shell scrips executable
 vim.keymap.set('n', '<leader>x', '<cmd>silent !chmod +x %<CR>', { desc = 'Make shell script executable' })
