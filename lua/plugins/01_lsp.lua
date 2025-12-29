@@ -12,10 +12,12 @@ return {
       group = vim.api.nvim_create_augroup('config-lsp-attach', { clear = true }),
       callback = function(event)
         -- Clear some default LSP keymaps
-        -- pcall(vim.keymap.del, 'n', 'grn') -- Rename
-        -- pcall(vim.keymap.del, 'n', 'grr') -- References
-        -- pcall(vim.keymap.del, 'n', 'gri') -- Implementation
-        -- pcall(vim.keymap.del, { 'n', 'v' }, 'gra') -- Code Action
+        pcall(vim.keymap.del, { 'n', 'v' }, 'gra') -- Code Action
+        pcall(vim.keymap.del, 'n', 'gri') -- Implementation
+        pcall(vim.keymap.del, 'n', 'grn') -- Rename
+        pcall(vim.keymap.del, 'n', 'grr') -- References
+        pcall(vim.keymap.del, 'n', 'grt') -- Type
+        pcall(vim.keymap.del, 'n', 'gO') -- Symbols
 
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
@@ -32,7 +34,7 @@ return {
         map('gr', require('snacks').picker.lsp_references, '[G]oto [R]eferences')
 
         -- Jump to the implementation
-        map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
+        map('gi', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the definition
         map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
