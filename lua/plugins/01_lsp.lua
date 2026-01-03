@@ -260,16 +260,16 @@ return {
           },
         },
       },
-      basedpyright = {
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = 'off',
-            },
-          },
-        },
-      },
-      -- ty = {},
+      -- basedpyright = {
+      --   settings = {
+      --     basedpyright = {
+      --       analysis = {
+      --         typeCheckingMode = 'off',
+      --       },
+      --     },
+      --   },
+      -- },
+      ty = {},
       ruff = { cmd = { '' } },
       gopls = {},
       clangd = {},
