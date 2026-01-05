@@ -1,6 +1,9 @@
 -- Exit insert mode
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode with jj' })
 
+-- Command-line window
+vim.keymap.set('n', '<leader>:', 'q:i', { desc = 'Open Command-line window mode' })
+
 -- Move vim splits
 vim.keymap.set('n', '<M-S-h>', '<C-w>H', { desc = 'Move window to the left' })
 vim.keymap.set('n', '<M-S-l>', '<C-w>L', { desc = 'Move window to the right' })
