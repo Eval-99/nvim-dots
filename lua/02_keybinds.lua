@@ -1,13 +1,6 @@
 -- Exit insert mode
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode with jj' })
 
--- I use vim-tmux-navigator now.
--- Move from on vim split to another
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- Move vim splits
 vim.keymap.set('n', '<M-S-h>', '<C-w>H', { desc = 'Move window to the left' })
 vim.keymap.set('n', '<M-S-l>', '<C-w>L', { desc = 'Move window to the right' })
@@ -32,10 +25,6 @@ vim.keymap.set('n', '<leader>x', '<cmd>silent !chmod +x %<CR>', { desc = 'Make s
 -- Clear highlight with Esc
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlight with Esc' })
 
--- I use vim-tmux-navigator now.
--- Use C-p to switch to previous pane.
--- vim.keymap.set({ 'n', 't' }, '<C-p>', '<Cmd>wincmd p<CR>', { desc = 'Switch to previous pane' })
-
 -- Yank to system with C-y
 vim.keymap.set({ 'n', 'v' }, '<C-y>', [["+y]], { desc = 'Yank to system with C-y' })
 
@@ -45,8 +34,45 @@ vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste and preserve clipboar
 -- Delete while preserving clip register
 vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'Delete and preserve clipboard' })
 
+-- Diagnostic QFlist keymaps
+vim.keymap.set('n', '<leader>qo', vim.diagnostic.setloclist, { desc = '[Q]uickfix buffer list [O]pen' })
+vim.keymap.set('n', '<leader>Qo', vim.diagnostic.setqflist, { desc = '[Q]uickfix global list [O]pen' })
+
+-- Diagnostic QFlist next keymap
+vim.keymap.set('n', '<leader>qn', function()
+  if vim.fn.getloclist(0, { size = 0 }).size > 0 then
+    ---@diagnostic disable-next-line: param-type-mismatch
+    pcall(vim.cmd, 'lnext')
+  elseif vim.fn.getqflist({ size = 0 }).size > 0 then
+    ---@diagnostic disable-next-line: param-type-mismatch
+    pcall(vim.cmd, 'cnext')
+  end
+end, { desc = '[Q]uickfix list [N]ext' })
+
+-- Diagnostic QFlist prev keymap
+vim.keymap.set('n', '<leader>qp', function()
+  if vim.fn.getloclist(0, { size = 0 }).size > 0 then
+    ---@diagnostic disable-next-line: param-type-mismatch
+    pcall(vim.cmd, 'lprev')
+  elseif vim.fn.getqflist({ size = 0 }).size > 0 then
+    ---@diagnostic disable-next-line: param-type-mismatch
+    pcall(vim.cmd, 'cprev')
+  end
+end, { desc = '[Q]uickfix list [P]revious' })
+
+-- I use vim-tmux-navigator now.
+-- Move from on vim split to another
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- I use vim-tmux-navigator now.
+-- Use C-p to switch to previous pane.
+-- vim.keymap.set({ 'n', 't' }, '<C-p>', '<Cmd>wincmd p<CR>', { desc = 'Switch to previous pane' })
+
 -- Now using Tmux. Need to figure out how to do this with Tmux.
--- -- Create Zellij pane in git repo with Lazygit running
+-- Create Zellij pane in git repo with Lazygit running
 -- function ZellijLazygit()
 --   local git_dir = vim.fn.finddir('.git', '.;')
 --   local cwd_dir = vim.fn.getcwd()
@@ -59,27 +85,5 @@ vim.keymap.set({ 'n', 'v' }, '<leader>D', [["_d]], { desc = 'Delete and preserve
 --   end
 -- end
 --
--- -- Zellij pane keymap
+-- Zellij pane keymap
 -- vim.keymap.set('n', '<leader>lg', '<cmd>lua ZellijLazygit()<CR>', { desc = 'Zellij pane in git repo with Lazygit running', silent = true })
-
--- Diagnostic QFlist keymaps
-vim.keymap.set('n', '<leader>qo', vim.diagnostic.setloclist, { desc = '[Q]uickfix buffer list [O]pen' })
-vim.keymap.set('n', '<leader>Qo', vim.diagnostic.setqflist, { desc = '[Q]uickfix global list [O]pen' })
-
--- Diagnostic QFlist next keymap
-vim.keymap.set('n', '<leader>qn', function()
-  if vim.fn.getloclist(0, { size = 0 }).size > 0 then
-    pcall(vim.cmd, 'lnext')
-  elseif vim.fn.getqflist({ size = 0 }).size > 0 then
-    pcall(vim.cmd, 'cnext')
-  end
-end, { desc = '[Q]uickfix list [N]ext' })
-
--- Diagnostic QFlist prev keymap
-vim.keymap.set('n', '<leader>qp', function()
-  if vim.fn.getloclist(0, { size = 0 }).size > 0 then
-    pcall(vim.cmd, 'lprev')
-  elseif vim.fn.getqflist({ size = 0 }).size > 0 then
-    pcall(vim.cmd, 'cprev')
-  end
-end, { desc = '[Q]uickfix list [P]revious' })
