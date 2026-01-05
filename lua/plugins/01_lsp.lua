@@ -34,7 +34,7 @@ return {
         map('gr', require('snacks').picker.lsp_references, '[G]oto [R]eferences')
 
         -- Jump to the implementation
-        map('gi', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
+        map('gI', require('snacks').picker.lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the definition
         map('gd', require('snacks').picker.lsp_definitions, '[G]oto [D]efinition')
