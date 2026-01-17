@@ -64,9 +64,8 @@ return {
       -- Server ensure installed
       ensure_installed = {
         'delve',
-        'debugpy',
+        'python',
         'codelldb',
-        'local-lua-debugger-vscode',
       },
     })
 
