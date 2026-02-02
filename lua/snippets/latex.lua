@@ -27,7 +27,7 @@ ls.add_snippets('tex', {
         \geometry{{paper=letterpaper,margin=54pt,includeheadfoot}}
 
         \author{{{}}}
-        \title{{\vspace{{-2.0cm}}\textbf{{\textit{{{}}}}}}}
+        \title{{\vspace{{-2.5cm}}\textbf{{\textit{{{}}}}}}}
         \titlespacing*{{\section}}{{0cm}}{{-0.0cm}}{{0cm}}
         \date{{\ul{{{}| {}}}}}
 
