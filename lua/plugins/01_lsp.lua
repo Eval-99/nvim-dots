@@ -258,15 +258,6 @@ return {
           },
         },
       },
-      -- basedpyright = {
-      --   settings = {
-      --     basedpyright = {
-      --       analysis = {
-      --         typeCheckingMode = 'off',
-      --       },
-      --     },
-      --   },
-      -- },
       ty = {},
       ruff = { cmd = { '' } },
       gopls = {},
