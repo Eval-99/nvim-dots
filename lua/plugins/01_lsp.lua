@@ -12,10 +12,11 @@ return {
       group = vim.api.nvim_create_augroup('config-lsp-attach', { clear = true }),
       callback = function(event)
         -- Clear some default LSP keymaps
-        pcall(vim.keymap.del, { 'n', 'v' }, 'gra') -- Code Action
-        pcall(vim.keymap.del, 'n', 'gri') -- Implementation
         pcall(vim.keymap.del, 'n', 'grn') -- Rename
+        pcall(vim.keymap.del, { 'n', 'x' }, 'gra') -- Code Action
+        pcall(vim.keymap.del, 'n', 'grx') -- Codelens
         pcall(vim.keymap.del, 'n', 'grr') -- References
+        pcall(vim.keymap.del, 'n', 'gri') -- Implementation
         pcall(vim.keymap.del, 'n', 'grt') -- Type
         pcall(vim.keymap.del, 'n', 'gO') -- Symbols
 
