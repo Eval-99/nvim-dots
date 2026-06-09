@@ -252,11 +252,9 @@ return {
             completion = {
               callSnippet = 'Replace',
             },
-            -- Use Love2d
-            -- diagnostics = { disable = { 'missing-fields' } },
-            -- workspace = {
-            --   userThirdParty = { '~/Code/lua/addons' },
-            -- },
+            workspace = {
+              library = { '~/Code/lua/addons', '/usr/share/hypr/stubs' },
+            },
           },
         },
       },
